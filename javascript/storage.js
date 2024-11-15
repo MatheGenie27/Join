@@ -4,7 +4,7 @@ let STORAGE_URL = "https://join-58a66-default-rtdb.europe-west1.firebasedatabase
 // Allgemeine Funktionen
 
 async function setItem(path="", value="") {
-    console.log("setItem aufgerufen");
+    
     let url = STORAGE_URL + path + ".json";
     let response = await fetch(url, {
         method: 'PUT', // 'PUT' überschreibt die bestehenden Daten
@@ -15,7 +15,7 @@ async function setItem(path="", value="") {
 }
 
 async function getItem(path="") {
-    console.log("getItem aufgerufen");
+    
     let url = STORAGE_URL + path + ".json";
     let response = await fetch(url);
     return await response.json(); // Gibt die JSON-Daten direkt zurück
@@ -51,7 +51,7 @@ async function storeRememberMe() {
 // Daten laden
 
 async function loadTasks() {
-    console.log("lade Taks");
+    
     let loadedTasks = await getItem('tasks');
     if (loadedTasks) {
         tasks = JSON.parse(loadedTasks); // Falls die Daten als String gespeichert sind
